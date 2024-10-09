@@ -5,8 +5,10 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #2e2b55;
+    font-family: "Montserrat", sans-serif;
+    background-image: url(assets/versão\ desck.png);
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +41,15 @@ h1 {
     margin-bottom: 20px;
 }
 
+.titulo{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    background: linear-gradient(45deg, #C0B7E8, #8176AF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+
 p{
     color: #e2e2f0;
     margin-bottom: 30px;
@@ -47,23 +58,31 @@ p{
 
 .botao-start {
     padding: 15px 30px;
-    background-color: #6857ec;
-    color: #fff;
+    background: linear-gradient(45deg, #C0B7E8, #8176AF);
+    color: #343045;
+    font-family: "montserrat", sans-serif;
+    font-weight: 900;
     border: none;
     border-radius: 50px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;;
     display: flex;
     align-items: center;
+    width: 65%;
 }
+.botao-start i {
+    font-size: 18px;
+    margin-left: 8px;
+  }
 
 .botao-start span {
     margin-left: 10px;
 }
 
-.botao-start-botao:hover {
-    background-color: #8673f4;
+.botao-start:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .image-container {
