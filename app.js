@@ -3,6 +3,7 @@ let numeroLimite = 1000;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
+
 function exibirTextoNaTela(tag, texto, append = false){
     let campo = document.querySelector(tag);
     if (append) {
@@ -12,35 +13,12 @@ function exibirTextoNaTela(tag, texto, append = false){
     }
 }
 
+
 function exibirMensagemInicial(){
     exibirTextoNaTela('h1', 'Jogo do número secreto');
     exibirTextoNaTela('p', 'Escolha um número entre 1 e 100');
 }
 exibirMensagemInicial();
-
-
-
-
-function verificarChute() {
-    let chute = document.querySelector('input').value;
-    if(chute == numeroSecreto){
-        exibirTextoNaTela('h1', 'Acertou!');
-        let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-        let mensagensTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`
-        exibirTextoNaTela('p', mensagensTentativas);
-        document.getElementById('reiniciar').removeAttribute('disabled');
-    }else if(chute > numeroSecreto){
-        exibirTextoNaTela('p', `O número secreto é menor que ${chute}`);
-    }else{
-        exibirTextoNaTela('p', `O número secreto é maior que ${chute}`);
-    }
-
-    atualizarHistorico(chute);
-    tentativas++;
-    limparCampo();
-
-}
-
 
 
 function atualizarHistorico(chute){
@@ -52,6 +30,7 @@ function atualizarHistorico(chute){
         listaHistorico.appendChild(itemHistorico)
 
 }
+
 
 function gerarNumeroAleatorio(){
    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
@@ -67,10 +46,13 @@ function gerarNumeroAleatorio(){
    }
 }
 
+
 function limparCampo(){
     chute = document.querySelector('input');
     chute.value = '';
 }
+
+
 function reiniciarJogo(){
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
@@ -81,6 +63,7 @@ function reiniciarJogo(){
     let listaHistorico = document.getElementById('listaHistorico');
     listaHistorico.innerHTML = '';
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const inputNumero = document.getElementById('numero');
@@ -93,6 +76,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
 
