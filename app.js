@@ -225,7 +225,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a1c83b94ba70c2db122cb53162361fefb08e4935
