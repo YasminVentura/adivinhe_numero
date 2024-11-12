@@ -14,19 +14,29 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <h1><span class="titulo">Pronto</span> para iniciar o <span class="titulo-jogo">JOGO?</span></h1>
-            <p>Adivinhe o número!</p>
-            <button class="botao-start">
-                START
-                <i class="bi bi-arrow-right"></i> 
-              </button>
-        </div>
-        <div class="image-container">
-            <img src="assets/arcade.png" alt="Arcade Game">
+    <div class="flip-container" id="flip-container">
+        <div class="flip-card" id="flip-card">
+            <div class="flip-card-front">
+                <div class="container-jogo">
+                    <div class="container">
+                        <div class="content">
+                            <h1><span class="titulo">Pronto</span> para iniciar o <span class="titulo-jogo">JOGO?</span></h1>
+                            <p>Adivinhe o número!</p>
+                            <button id="start-button" class="botao-start">
+                                START
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="image-container">
+                            <img src="assets/arcade.png" alt="Arcade Game">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card-back">
+            </div>
         </div>
     </div>
 </body>
-
+<script src="app.js"></script>
 </html>
