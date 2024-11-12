@@ -5,7 +5,6 @@ let tentativas = 1;
 let botaoAtivo = true;
 let pontuacao = 70;
 
-<<<<<<< HEAD
 function gerarFibonacci(limite) {
     let fibonacci = [0, 1];
     let proximo = fibonacci[0] + fibonacci[1];
@@ -29,10 +28,6 @@ function isPrimo(numero) {
 }
 
 function exibirTextoNaTela(tag, texto, append = false) {
-=======
-
-function exibirTextoNaTela(tag, texto, append = false){
->>>>>>> a1c83b94ba70c2db122cb53162361fefb08e4935
     let campo = document.querySelector(tag);
     if (append) {
         campo.innerHTML += texto;
@@ -41,7 +36,6 @@ function exibirTextoNaTela(tag, texto, append = false){
     }
 }
 
-<<<<<<< HEAD
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1', 'Pronto para começar o JOGO?');
     exibirTextoNaTela('p', 'Escolha um número entre 1 e 1000');
@@ -100,24 +94,12 @@ function verificarChute() {
 }
 
 function atualizarHistorico(chute) {
-=======
-
-function exibirMensagemInicial(){
-    exibirTextoNaTela('h1', 'Jogo do número secreto');
-    exibirTextoNaTela('p', 'Escolha um número entre 1 e 100');
-}
-exibirMensagemInicial();
-
-
-function atualizarHistorico(chute){
->>>>>>> a1c83b94ba70c2db122cb53162361fefb08e4935
     let listaHistorico = document.getElementById('listaHistorico');
     let itemHistorico = document.createElement('li');
     itemHistorico.textContent = chute;
     listaHistorico.appendChild(itemHistorico);
 }
 
-<<<<<<< HEAD
 function gerarNumeroAleatorio() {
     let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeDeElementoNaLista = listaDeNumerosSorteados.length;
@@ -136,51 +118,15 @@ function limparCampo() {
     let chute = document.querySelector('input');
     chute.value = '';
 }
-=======
-
-function gerarNumeroAleatorio(){
-   let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
-   let quantidadeDeElementoNaLista = listaDeNumerosSorteados.length;
-   if(quantidadeDeElementoNaLista == numeroLimite){
-    listaDeNumerosSorteados = [];
-   }
-   if (listaDeNumerosSorteados.includes(numeroEscolhido)){
-    return gerarNumeroAleatorio();
-   }else{
-    listaDeNumerosSorteados.push(numeroEscolhido);
-    return numeroEscolhido;
-   }
-}
-
-
-function limparCampo(){
-    chute = document.querySelector('input');
-    chute.value = '';
-}
-
-
-function reiniciarJogo(){
-    numeroSecreto = gerarNumeroAleatorio();
-    limparCampo();
-    tentativas = 1;
-    exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled', true);
->>>>>>> a1c83b94ba70c2db122cb53162361fefb08e4935
 
 function reiniciarJogo() {
     location.reload();
 
 }
 
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function () {
     const startButton = document.getElementById('start-button');
     const flipCard = document.getElementById('flip-card');
-=======
-
-document.addEventListener('DOMContentLoaded', function() {
-    const inputNumero = document.getElementById('numero');
->>>>>>> a1c83b94ba70c2db122cb53162361fefb08e4935
 
     startButton.addEventListener('click', function () {
         flipCard.classList.add('flipped');
