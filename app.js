@@ -211,6 +211,9 @@ function verificarChute() {
     if (tentativas > 1) {
         pontuacao -= 10;
     }
+    if(tentativas === 7 && chute === numeroSecreto){
+        pontuacao = 10;
+    }
 
     tentativas++;
     exibirTextoNaTela('#pontuacao', pontuacao);
