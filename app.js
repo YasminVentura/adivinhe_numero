@@ -67,7 +67,6 @@ function verificarChute() {
 
     if(tentativas  >= 7 ){
         exibirTextoNaTela('#titulo', 'Que pena!');
-        exibirTextoNaTela('#dicas', 'Quantidade máxima de tentativas excedidas');
         document.getElementById('botao-jogar').disabled = true;
         pontuacao -= 10;
     }
@@ -213,6 +212,9 @@ function verificarChute() {
     }
     if(tentativas === 7 && chute === numeroSecreto){
         pontuacao = 10;
+    }
+    if(tentativas  >= 7 && chute !== numeroSecreto){
+        exibirTextoNaTela('#dicas', 'Quantidade máxima de tentativas excedidas');
     }
 
     tentativas++;
