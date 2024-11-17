@@ -65,158 +65,157 @@ function verificarChute() {
     console.log('Chute:', chute, ' -- Número Secreto:', numeroSecreto);
     let dicas = [];
 
-    if (tentativas <= 7) {
-        if (chute === numeroSecreto) {
-            exibirTextoNaTela('#titulo', 'Acertou!');
-            let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-            let mensagensTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
-            exibirTextoNaTela('#dicas', mensagensTentativas);
-            document.getElementById('novo-jogo-botao').removeAttribute('disabled');
-            document.getElementById('botao-jogar').disabled = true;
-        } else {
-            if (numeroSecreto % chute === 0) {
-                dicas.push(`O número secreto é divisível por ${chute}`);
-            }
-            if (numeroSecreto % 10 === 0) {
-                dicas.push(`O número secreto é um número redondo`);
-            } else {
-                dicas.push(`O número secreto não é um número redondo`);
-            }
-            if (numeroSecreto % 2 === 0) {
-                dicas.push(`O número secreto é par`);
-                dicas.push(`O número secreto é um múltiplo de 2`);
-            } else {
-                dicas.push(`O número secreto é ímpar`);
-                dicas.push(`O número secreto não é um múltiplo de 2`);
-            }
-            if (numeroSecreto % 3 === 0) {
-                dicas.push(`O número secreto é divisível por 3`);
-            }
-            if (numeroSecreto % 5 === 0) {
-                dicas.push(`O número secreto é divisível por 5`);
-            } else {
-                dicas.push(`O número secreto não é divisível por 5`);
-            }
-            if (numeroSecreto % 6 === 0) {
-                dicas.push(`O número secreto é múltiplo de 6`);
-            }
-            if (numeroSecreto % 7 === 0) {
-                dicas.push(`O número secreto é divisível por 7`);
-            } else {
-                dicas.push(`O número secreto não é divisível por 7`);
-            }
-            if (numeroSecreto % 8 === 0) {
-                dicas.push(`O número secreto é um múltiplo de 8`);
-            }
-            if (numeroSecreto % 9 === 0) {
-                dicas.push(`O número secreto é divisível por 9`);
-            }
-
-            if (isHarshad(numeroSecreto)) {
-                dicas.push(`O número secreto é um número de Harshad`);
-            } else {
-                dicas.push(`O número secreto não é um número de Harshad`);
-            }
-            if (Math.cbrt(numeroSecreto) % 1 === 0) {
-                dicas.push(`O número secreto é um número cúbico`);
-            } else {
-                dicas.push(`O número secreto não é um número cúbico`);
-            }
-            if (fibonacci.includes(numeroSecreto)) {
-                dicas.push(`O número secreto é um número de Fibonacci`);
-            } else {
-                dicas.push(`O número secreto não está na sequência de Fibonacci`);
-            }
-            if (Math.sqrt(numeroSecreto) % 1 === 0) {
-                dicas.push(`O número secreto é um quadrado perfeito`);
-            } else {
-                dicas.push(`O número secreto não é um quadrado perfeito`);
-            }
-            if (isPrimo(numeroSecreto)) {
-                dicas.push(`O número secreto é primo`);
-            }
-            if (isTriangular(numeroSecreto)) {
-                dicas.push(`O número secreto é um número triangular`);
-            }
-            if (isPalindromo(numeroSecreto)) {
-                dicas.push(`O número secreto é um número palíndromo`);
-            } else {
-                dicas.push(`O número secreto não é um número palíndromo`);
-            }
-            if (numeroSecreto > 10) {
-                const soma = somaDosDigitos(numeroSecreto);
-                dicas.push(`A soma dos dígitos do número secreto é ${soma}`);
-            }
-
-            if (numeroSecreto < 100) {
-                dicas.push(`O número secreto é menor que 100`);
-            }
-            if (numeroSecreto > 500) {
-                dicas.push(`O número secreto é maior que 500`);
-            }
-
-            if (numeroSecreto >= 10 && numeroSecreto < 100) {
-                dicas.push('O número secreto é um número de dois dígitos');
-            }
-            if (numeroSecreto >= 100 && numeroSecreto < 1000) {
-                dicas.push('O número secreto é um número de três dígitos');
-            }
-
-            if (numeroSecreto > Math.PI) {
-                console.log("O número secreto é maior que π.");
-            }
-
-            if (numeroSecreto < 16) {
-                dicas.push('O número secreto é inferior a 4²');
-            }
-
-            if (numeroSecreto >= 16 && numeroSecreto <= 36) {
-                dicas.push('O número secreto está em um intervalo entre 4² e 6²');
-            }
-            if (numeroSecreto >= 49 && numeroSecreto <= 81) {
-                dicas.push('O número secreto está em um intervalo entre 7² e 9²');
-            }
-            if (numeroSecreto >= 125 && numeroSecreto <= 343) {
-                dicas.push('O número secreto está em um intervalo entre 5³ e 7³');
-            }
-            if (numeroSecreto >= 512 && numeroSecreto <= 729) {
-                dicas.push('O número secreto está em um intervalo entre 8³ e 9³');
-            }
-            if (numeroSecreto >= 841 && numeroSecreto <= 961) {
-                dicas.push('O número secreto está em um intervalo entre 29² e 31²');
-            }
-            if (numeroSecreto > 961) {
-                dicas.push('O número secreto é superior a 31²');
-            }
-
-            if (chute > numeroSecreto) {
-                dicas.push(`O número secreto é menor que ${chute}`);
-            } else {
-                dicas.push(`O número secreto é maior que ${chute}`);
-            }
-
-            if (dicas.length > 0) {
-                let dicaAleatoria = dicas[Math.floor(Math.random() * dicas.length)];
-                exibirTextoNaTela('#dicas', dicaAleatoria);
-            }
-        }
-
-        atualizarHistorico(chute);
-        if (tentativas > 1) {
-            pontuacao -= 10;
-        }
-
-        tentativas++;
-
-    } else {
+    if(tentativas  >= 7 ){
         exibirTextoNaTela('#titulo', 'Que pena!');
         exibirTextoNaTela('#dicas', 'Quantidade máxima de tentativas excedidas');
         document.getElementById('botao-jogar').disabled = true;
         pontuacao -= 10;
     }
 
+    if (chute === numeroSecreto) {
+        exibirTextoNaTela('#titulo', 'Acertou!');
+        let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+        let mensagensTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
+        exibirTextoNaTela('#dicas', mensagensTentativas);
+        document.getElementById('novo-jogo-botao').removeAttribute('disabled');
+        document.getElementById('botao-jogar').disabled = true;
+    } else {
+        if (numeroSecreto % chute === 0) {
+            dicas.push(`O número secreto é divisível por ${chute}`);
+        }
+        if (numeroSecreto % 10 === 0) {
+            dicas.push(`O número secreto é um número redondo`);
+        } else {
+            dicas.push(`O número secreto não é um número redondo`);
+        }
+        if (numeroSecreto % 2 === 0) {
+            dicas.push(`O número secreto é par`);
+            dicas.push(`O número secreto é um múltiplo de 2`);
+        } else {
+            dicas.push(`O número secreto é ímpar`);
+            dicas.push(`O número secreto não é um múltiplo de 2`);
+        }
+        if (numeroSecreto % 3 === 0) {
+            dicas.push(`O número secreto é divisível por 3`);
+        }
+        if (numeroSecreto % 5 === 0) {
+            dicas.push(`O número secreto é divisível por 5`);
+        } else {
+            dicas.push(`O número secreto não é divisível por 5`);
+        }
+        if (numeroSecreto % 6 === 0) {
+            dicas.push(`O número secreto é múltiplo de 6`);
+        }
+        if (numeroSecreto % 7 === 0) {
+            dicas.push(`O número secreto é divisível por 7`);
+        } else {
+            dicas.push(`O número secreto não é divisível por 7`);
+        }
+        if (numeroSecreto % 8 === 0) {
+            dicas.push(`O número secreto é um múltiplo de 8`);
+        }
+        if (numeroSecreto % 9 === 0) {
+            dicas.push(`O número secreto é divisível por 9`);
+        }
+
+        if (isHarshad(numeroSecreto)) {
+            dicas.push(`O número secreto é um número de Harshad`);
+        } else {
+            dicas.push(`O número secreto não é um número de Harshad`);
+        }
+        if (Math.cbrt(numeroSecreto) % 1 === 0) {
+            dicas.push(`O número secreto é um número cúbico`);
+        } else {
+            dicas.push(`O número secreto não é um número cúbico`);
+        }
+        if (fibonacci.includes(numeroSecreto)) {
+            dicas.push(`O número secreto é um número de Fibonacci`);
+        } else {
+            dicas.push(`O número secreto não está na sequência de Fibonacci`);
+        }
+        if (Math.sqrt(numeroSecreto) % 1 === 0) {
+            dicas.push(`O número secreto é um quadrado perfeito`);
+        } else {
+            dicas.push(`O número secreto não é um quadrado perfeito`);
+        }
+        if (isPrimo(numeroSecreto)) {
+            dicas.push(`O número secreto é primo`);
+        }
+        if (isTriangular(numeroSecreto)) {
+            dicas.push(`O número secreto é um número triangular`);
+        }
+        if (isPalindromo(numeroSecreto)) {
+            dicas.push(`O número secreto é um número palíndromo`);
+        } else {
+            dicas.push(`O número secreto não é um número palíndromo`);
+        }
+        if (numeroSecreto > 10) {
+            const soma = somaDosDigitos(numeroSecreto);
+            dicas.push(`A soma dos dígitos do número secreto é ${soma}`);
+        }
+
+        if (numeroSecreto < 100) {
+            dicas.push(`O número secreto é menor que 100`);
+        }
+        if (numeroSecreto > 500) {
+            dicas.push(`O número secreto é maior que 500`);
+        }
+
+        if (numeroSecreto >= 10 && numeroSecreto < 100) {
+            dicas.push('O número secreto é um número de dois dígitos');
+        }
+        if (numeroSecreto >= 100 && numeroSecreto < 1000) {
+            dicas.push('O número secreto é um número de três dígitos');
+        }
+
+        if (numeroSecreto > Math.PI) {
+            console.log("O número secreto é maior que π.");
+        }
+
+        if (numeroSecreto < 16) {
+            dicas.push('O número secreto é inferior a 4²');
+        }
+
+        if (numeroSecreto >= 16 && numeroSecreto <= 36) {
+            dicas.push('O número secreto está em um intervalo entre 4² e 6²');
+        }
+        if (numeroSecreto >= 49 && numeroSecreto <= 81) {
+            dicas.push('O número secreto está em um intervalo entre 7² e 9²');
+        }
+        if (numeroSecreto >= 125 && numeroSecreto <= 343) {
+            dicas.push('O número secreto está em um intervalo entre 5³ e 7³');
+        }
+        if (numeroSecreto >= 512 && numeroSecreto <= 729) {
+            dicas.push('O número secreto está em um intervalo entre 8³ e 9³');
+        }
+        if (numeroSecreto >= 841 && numeroSecreto <= 961) {
+            dicas.push('O número secreto está em um intervalo entre 29² e 31²');
+        }
+        if (numeroSecreto > 961) {
+            dicas.push('O número secreto é superior a 31²');
+        }
+
+        if (chute > numeroSecreto) {
+            dicas.push(`O número secreto é menor que ${chute}`);
+        } else {
+            dicas.push(`O número secreto é maior que ${chute}`);
+        }
+
+        if (dicas.length > 0) {
+            let dicaAleatoria = dicas[Math.floor(Math.random() * dicas.length)];
+            exibirTextoNaTela('#dicas', dicaAleatoria);
+        }
+    }
+
+    atualizarHistorico(chute);
+    if (tentativas > 1) {
+        pontuacao -= 10;
+    }
+
+    tentativas++;
     exibirTextoNaTela('#pontuacao', pontuacao);
     limparCampo();
+
 }
 
 function atualizarHistorico(chute) {
