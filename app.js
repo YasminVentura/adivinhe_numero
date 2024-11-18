@@ -214,7 +214,7 @@ function verificarChute() {
         pontuacao = 10;
     }
     if(tentativas  >= 7 && chute !== numeroSecreto){
-        exibirTextoNaTela('#dicas', 'Quantidade máxima de tentativas excedidas');
+        exibirTextoNaTela('#dicas', `Suas tentativas acabaram. O número secreto era ${numeroSecreto}!`);
     }
 
     tentativas++;
