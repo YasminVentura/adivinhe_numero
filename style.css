@@ -217,3 +217,7 @@ input::placeholder{
     height: 200px;
     margin: 0 20px;
 }
+
+#dicas {
+    font-weight: bold;
+}
