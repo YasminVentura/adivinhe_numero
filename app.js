@@ -1,4 +1,5 @@
 let listaDeNumerosSorteados = [];
+let listaHistorico = [];
 let numeroLimite = 1000;
 let numeroSecreto = gerarNumeroAleatorio();
 console.log('Número Secreto:', numeroSecreto);
@@ -65,6 +66,14 @@ function verificarChute() {
     console.log('Chute:', chute, ' -- Número Secreto:', numeroSecreto);
     let dicas = [];
 
+    if (listaHistorico.includes(chute)) {
+        exibirTextoNaTela('#dicas', 'Você já chutou esse número. Tente novamente!');
+        limparCampo();
+        return;
+    }
+
+    listaHistorico.push(chute);
+
     if(tentativas  >= 7 ){
         exibirTextoNaTela('#titulo', 'Que pena!');
         document.getElementById('botao-jogar').disabled = true;
@@ -116,7 +125,6 @@ function verificarChute() {
         if (numeroSecreto % 9 === 0) {
             dicas.push(`O número secreto é divisível por 9`);
         }
-
         if (isHarshad(numeroSecreto)) {
             dicas.push(`O número secreto é um número de Harshad`);
         } else {
@@ -152,7 +160,6 @@ function verificarChute() {
             const soma = somaDosDigitos(numeroSecreto);
             dicas.push(`A soma dos dígitos do número secreto é ${soma}`);
         }
-
         if (numeroSecreto < 100) {
             dicas.push(`O número secreto é menor que 100`);
         }
@@ -166,15 +173,12 @@ function verificarChute() {
         if (numeroSecreto >= 100 && numeroSecreto < 1000) {
             dicas.push('O número secreto é um número de três dígitos');
         }
-
         if (numeroSecreto > Math.PI) {
-            console.log("O número secreto é maior que π.");
+            dicas.push("O número secreto é maior que π.");
         }
-
         if (numeroSecreto < 16) {
             dicas.push('O número secreto é inferior a 4²');
         }
-
         if (numeroSecreto >= 16 && numeroSecreto <= 36) {
             dicas.push('O número secreto está em um intervalo entre 4² e 6²');
         }
